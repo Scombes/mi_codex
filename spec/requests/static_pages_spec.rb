@@ -1,15 +1,23 @@
 require 'spec_helper'
 
 describe "Static Pages" do
+
+	let(:base_title) { "Mi Codex"}
+
   describe "Home page" do
     it "should have the content 'Mi Codex'" do
       visit '/static_pages/home'
       expect(page).to have_content('Mi Codex')
     end
 
-    it "should have the title 'Home'" do
+    it "should have the base title" do
     	visit '/static_pages/home'
-    	expect(page).to have_title("Mi Codex | Home")
+    	expect(page).to have_title("#{base_title}")
+    end
+
+    it "should not have home in title" do
+    	visit '/static_pages/home'
+    	expect(page).not_to have_title('| Home')
     end
   end
 
@@ -21,7 +29,7 @@ describe "Static Pages" do
 
   	it "should have the title 'Help'" do
     	visit '/static_pages/help'
-    	expect(page).to have_title("Mi Codex | Help")
+    	expect(page).to have_title("#{base_title} | Help")
     end
   end
 
@@ -33,7 +41,7 @@ describe "Static Pages" do
 
   	it "should have the title 'Contact'" do
     	visit '/static_pages/contact'
-    	expect(page).to have_title("Mi Codex | Contact")
+    	expect(page).to have_title("#{base_title} | Contact")
     end
   end
 
