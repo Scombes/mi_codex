@@ -2,47 +2,27 @@ require 'spec_helper'
 
 describe "Static Pages" do
 
+  subject { page }
+
 	let(:base_title) { "Mi Codex"}
 
   describe "Home page" do
-    it "should have the content 'Mi Codex'" do
-      visit '/static_pages/home'
-      expect(page).to have_content('Mi Codex')
-    end
-
-    it "should have the base title" do
-    	visit '/static_pages/home'
-    	expect(page).to have_title("#{base_title}")
-    end
-
-    it "should not have home in title" do
-    	visit '/static_pages/home'
-    	expect(page).not_to have_title('| Home')
-    end
+    before { visit root_path}
+    it {should have_content('Mi Codex')}
+    it {should have_title("#{base_title}")}
+    it {should_not have_title('| Home')}
   end
 
   describe "Help Page" do
-  	it "should have the content 'Mi Codex Help'" do
-  		visit '/static_pages/help'
-  		expect(page).to have_content('Mi Codex Help')
-  	end
-
-  	it "should have the title 'Help'" do
-    	visit '/static_pages/help'
-    	expect(page).to have_title("#{base_title} | Help")
-    end
+    before { visit help_path}
+    it {should have_content('Mi Codex Help')}
+    it {should have_title("#{base_title} | Help")}
   end
 
   describe "Contact Page" do
-  	it "should have the content 'Contact Mi Codex'" do
-  		visit '/static_pages/contact'
-  		expect(page).to have_content('Contact Mi Codex')
-  	end
-
-  	it "should have the title 'Contact'" do
-    	visit '/static_pages/contact'
-    	expect(page).to have_title("#{base_title} | Contact")
-    end
+    before { visit contact_path}
+    it {should have_content('Contact Mi Codex')}
+    it {should have_title("#{base_title} | Contact")}
   end
 
 end
