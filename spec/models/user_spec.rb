@@ -16,6 +16,7 @@ describe User do
   it { should respond_to(:remember_token)}
   it { should respond_to(:authenticate) }
   it { should respond_to(:admin) }
+  it { should respond_to(:books) }
 
 
   it { should be_valid }
@@ -114,6 +115,20 @@ describe User do
     before { @user.save }
     its(:remember_token) { should_not be_blank }
   end
+
+  describe "book associations" do
+
+    it "should destroy associated books" do
+      books = @user.books.to_a
+      @user.destroy
+      
+      books.each do |book|
+        expect(Book.where(id: book.id)).to be_empty
+      end
+    end
+  end
 end
+
+
 
 
