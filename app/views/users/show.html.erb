@@ -12,9 +12,9 @@
   <div class="span8">
   	<% if @user.books.any? %>
   	<h3>Library (<%= @user.books.count %>)</h3>
-  		<ol class="books">
+  		<ol>
   			<% render @books %>
-  		</ol>
+  	 </ol>
   		<%= will_paginate @books %>
   		<% end %>
   </div>
