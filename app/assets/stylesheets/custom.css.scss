@@ -190,3 +190,21 @@ input {
     }
   }
 }
+
+/* library */
+.library th .current {
+  padding-right: 15px;
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+
+.library th .asc {
+  background-image: image-url("up.png");
+  background-position: right center;
+}
+
+.library th .desc {
+  background-image: image-url("down.png");
+  background-position: right center;
+}
+

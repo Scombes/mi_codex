@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  helper_method :sort_column, :sort_direction
   before_action :signed_in_user, only: [:edit, :update, :destroy]
   before_action :correct_user,   only: [:edit, :update]
   before_action :admin_user,     only: [:index, :destroy]
@@ -9,9 +10,9 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find(params[:id])
-    @books = @user.books.paginate(page: params[:page])
+    @books = @user.books.order(sort_column + " " + sort_direction).paginate(page: params[:page])
 	end
-  	
+  	 
   	def new
   		@user = User.new
   	end
@@ -47,6 +48,14 @@ class UsersController < ApplicationController
   end
 
   private
+
+    def sort_column
+      @user.books.column_names.include?(params[:sort]) ? params[:sort] : "title"
+    end
+  
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+  end
 
     def user_params
       params.require(:user).permit(:name, :email, :password,

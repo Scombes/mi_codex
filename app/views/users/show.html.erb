@@ -1,6 +1,6 @@
 <% provide(:title, @user.name) %>
 <div class="row">
-  <aside class="span4">
+  <aside class="span3">
     <section>
       <h1>
         <%= gravatar_for @user %>
@@ -9,12 +9,32 @@
       </h1>
     </section>
   </aside>
-  <div class="span8">
+  <div class="span9">
   	<% if @user.books.any? %>
   	<h3>Library (<%= @user.books.count %>)</h3>
-  		<ol>
-  			<% render @books %>
-  	 </ol>
+      
+  		<table class="table library">
+        <tr>
+          <th><%= sortable 'title' %></th>
+          <th><%= sortable 'author' %></th>
+          <th><%= sortable 'publisher' %></th>
+          <th><%= sortable 'copyright' %></th>
+          <th><%= sortable 'genre' %></th>
+          <th><%= sortable 'isbn' %></th>
+        </tr>
+
+        <% @books.each do |book| %>
+        <tr>
+  			     <td><%= book.title %></td>
+             <td><%= book.author %></td>
+             <td><%= book.publisher %></td>
+             <td><%= book.copyright %></td>
+             <td><%= book.genre %></td>
+             <td><%= book.isbn %></td>
+        </tr>
+        <% end %>
+  	 </table>
+      
   		<%= will_paginate @books %>
   		<% end %>
   </div>
