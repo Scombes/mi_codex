@@ -27,7 +27,7 @@ describe User do
       @user.save!
       @user.toggle!(:admin)
     end
-
+ 
     it { should be_admin }
   end
 
@@ -126,6 +126,9 @@ describe User do
         expect(Book.where(id: book.id)).to be_empty
       end
     end
+  end
+  describe "table sorting" do
+    
   end
 end
 

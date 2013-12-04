@@ -28,7 +28,7 @@ describe "Authentication" do
       end
 
       it { should have_title(user.name) }
-      it { should have_link('Users',       href: users_path) }
+      
       it { should have_link('Profile',     href: user_path(user)) }
       it { should have_link('Settings',    href: edit_user_path(user)) }
       it { should have_link('Sign out',    href: signout_path) }
@@ -78,6 +78,19 @@ describe "Authentication" do
       describe "visiting the user index" do
           before { visit users_path }
           it { should have_title('Sign in') }
+        end
+
+        describe "in the books controller" do
+          
+          describe "submitting to the create action" do
+            before { post books_path }
+            specify { expect(response).to redirect_to(signin_path )}
+          end
+
+          describe "submitting to the destroy action" do
+            before { delete book_path(FactoryGirl.create(:book)) }
+            specify { expect(response).to redirect_to(signin_path) }
+          end
         end
     end
 

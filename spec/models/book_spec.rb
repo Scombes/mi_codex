@@ -18,4 +18,4 @@ describe Book do
     before { @book.user_id = nil }
     it { should_not be_valid }
   end
-end
+end 
