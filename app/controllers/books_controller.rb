@@ -29,4 +29,6 @@ class BooksController < ApplicationController
   		@book = current_user.books.find_by(id: params[:id])
   		redirect_to root_url if @book.nil?
   	end
+
+    
 end

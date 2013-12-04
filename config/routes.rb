@@ -3,6 +3,8 @@ MiCodex::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :books, only: [:create, :destroy]
   root  'static_pages#home'
+  match '/add', to: 'static_pages#home', via: 'post'
+  match '/add', to: 'static_pages#home', via: 'get'
   match '/signin', to: 'sessions#new', via: 'get'
   match '/signout', to: 'sessions#destroy', via: 'delete'
   match '/signup', to: 'users#new',  via: 'get'

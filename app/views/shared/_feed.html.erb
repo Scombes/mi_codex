@@ -1,0 +1,27 @@
+<% if @feed_items.any? %>
+  	<h3>Library (<%= @feed_items.count %>)</h3>
+      
+  		<table class="table library">
+        <tr>
+          <th><%= sortable 'title' %></th>
+          <th><%= sortable 'author' %></th>
+          <th><%= sortable 'publisher' %></th>
+          <th><%= sortable 'copyright' %></th>
+          <th><%= sortable 'genre' %></th>
+          <th><%= sortable 'isbn' %></th>
+        </tr>
+
+        <% @feed_items.each do |book| %>
+        <tr>
+  			     <td><%= book.title %></td>
+             <td><%= book.author %></td>
+             <td><%= book.publisher %></td>
+             <td><%= book.copyright %></td>
+             <td><%= book.genre %></td>
+             <td><%= book.isbn %></td>
+        </tr>
+        <% end %>
+  	 </table>
+      
+  		<%= will_paginate @feed_items %>
+  		<% end %>
