@@ -1,9 +1,9 @@
 <%= form_tag ('/add') do  %>
 		<h1>Add A Book</h1>
-      <%= label_tag 'data', 'Search By:' %>
-      <%= select_tag 'data', options_for_select( @data_types, @selected_data) %>
+      <%= label_tag 'data', 'Search:' %>
+      
 
-      <%= text_field_tag 'info' %>
+      <%= text_field_tag 'info', nil,  placeholder: 'ISBN, Title, Author...' %>
       
      
       <%= submit_tag "Find Book", class: "btn btn-primary" %>

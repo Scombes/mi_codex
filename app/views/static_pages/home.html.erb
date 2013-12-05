@@ -11,15 +11,16 @@
     <div class="span9">
       <div class="row">
         <div class="span9">
-          <h3> Results</h3>
-          <p><%= params.inspect %></p> 
+         
+          <p><%= params.inspect %></p>
           <% if book_detail != nil %>
-          <ul>
-
+            <h3>Results</h3>
+              <ul>
+                <% book_detail.each do |book| %>
+                <li><%= book.title %> by <%= book.author_name %></li>
+                <% end %>
+              </ul>
           
-            <li><%= book_detail.title %>, By <%= book_detail.authors %></li>
-            
-          </ul>
           <% end %>
         </div>
           <div class="span9">
@@ -30,10 +31,10 @@
   </div>
 <% else %>
 <div class="center hero-unit">
-	<h1>Mi Codex</h1>
-	<h2>A simple cataloging system</h2>
-	<%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
-	<p>A simple service that allows you to create and maintain your personal library.</p>
+        <h1>Mi Codex</h1>
+        <h2>A simple cataloging system</h2>
+        <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
+        <p>A simple service that allows you to create and maintain your personal library.</p>
 </div>
- <% end %> 
+ <% end %>
 

@@ -1,0 +1,7 @@
+<h3> Results</h3>
+
+    <ul>
+    <% book_detail.each do |book| %>
+    <li><%= book.title %> by <%= book.author_name %></li>
+    <% end %>
+    </ul>
