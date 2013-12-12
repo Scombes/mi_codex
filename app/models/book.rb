@@ -1,4 +1,6 @@
+
 class Book < ActiveRecord::Base
+	searchkick
 	belongs_to :user
 	
 	validates :user_id, presence: true

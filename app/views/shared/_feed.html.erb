@@ -1,27 +1,31 @@
 <% if @feed_items.any? %>
-  	<h3>Library (<%= @feed_items.count %>)</h3>
-      
-  		<table class="table library">
-        <tr>
-          <th><%= sortable 'title' %></th>
-          <th><%= sortable 'author' %></th>
-          <th><%= sortable 'publisher' %></th>
-          <th><%= sortable 'copyright' %></th>
-          <th><%= sortable 'genre' %></th>
-          <th><%= sortable 'isbn' %></th>
-        </tr>
+  <%= form_tag books_path, class: "navbar-form pull-right", method: :get do  %>
+    <%= text_field_tag :query, params[:query], class: "span2" %>
+    <%= submit_tag "Search", :name => nil, class: "btn" %><br /><br />
+  <% end %>
+
+  <% if params[:query].present? %>
+      <%= render 'shared/search' %>
+  <% end %>
+  <h3>Library (<%= @feed_items.count %>)</h3>
+    <table class="table library">
+      <tr>
+        <%= render 'shared/table_head' %>
+
+      </tr>
 
         <% @feed_items.each do |book| %>
-        <tr>
-  			     <td><%= book.title %></td>
-             <td><%= book.author %></td>
-             <td><%= book.publisher %></td>
-             <td><%= book.copyright %></td>
-             <td><%= book.genre %></td>
-             <td><%= book.isbn %></td>
-        </tr>
+          <tr>
+  			    <td><%= book.title %></td>
+            <td><%= book.author %></td>
+            <td><%= book.publisher %></td>
+            <td><%= book.copyright %></td>
+            <td><%= book.genre %></td>
+            <td><%= book.isbn %></td>
+            <td><%= link_to "Delete", book, method: :delete, data: { confirm: "Are you sure?" }, title: book.title %></td>
+          </tr>
         <% end %>
   	 </table>
       
   		<%= will_paginate @feed_items %>
-  		<% end %>
+<% end %>

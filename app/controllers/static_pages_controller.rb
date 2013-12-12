@@ -11,6 +11,11 @@ class StaticPagesController < ApplicationController
     end
     @info= params[:info]
     @selected_data = params[:data]
+    if params[:query].present?
+      @search = Book.search(params[:query], page: params[:page])
+    else
+      @search = Book.all.page params[:page]
+    end
   end
 
   def help
@@ -21,6 +26,8 @@ class StaticPagesController < ApplicationController
 
   def add
   end
+
+
 
 private
 
@@ -39,3 +46,4 @@ private
           
 end
 
+ 

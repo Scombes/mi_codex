@@ -25,6 +25,7 @@ GEM
       multi_json (~> 1.3)
       thread_safe (~> 0.1)
       tzinfo (~> 0.3.37)
+    ansi (1.4.3)
     arel (4.0.1)
     atomic (1.1.14)
     bcrypt-ruby (3.1.2)
@@ -60,6 +61,7 @@ GEM
       i18n (~> 0.5)
     ffi (1.9.3)
     hashie (2.0.5)
+    hashr (0.0.22)
     hike (1.2.3)
     httparty (0.12.0)
       json (~> 1.8)
@@ -135,6 +137,9 @@ GEM
     sdoc (0.3.20)
       json (>= 1.1.3)
       rdoc (~> 3.10)
+    searchkick (0.3.5)
+      tire
+      tire-contrib
     selenium-webdriver (2.35.1)
       childprocess (>= 0.2.5)
       multi_json (~> 1.0)
@@ -153,6 +158,16 @@ GEM
     thread_safe (0.1.3)
       atomic
     tilt (1.4.1)
+    tire (0.6.1)
+      activemodel (>= 3.0)
+      activesupport
+      ansi
+      hashr (~> 0.0.19)
+      multi_json (~> 1.3)
+      rake
+      rest-client (~> 1.6)
+    tire-contrib (0.1.3)
+      tire
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
@@ -188,6 +203,7 @@ DEPENDENCIES
   rspec-rails (= 2.13.1)
   sass-rails (~> 4.0.0)
   sdoc
+  searchkick
   selenium-webdriver (= 2.35.1)
   turbolinks
   uglifier (>= 1.3.0)
