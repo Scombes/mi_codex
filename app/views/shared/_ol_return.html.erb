@@ -1,0 +1,51 @@
+<h3>Results</h3>
+	<table class="table library">
+		<tr>
+			<th>Add</th>
+          <th><%= sortable 'title' %></th>
+          <th><%= sortable 'author' %></th>
+          <th><%= sortable 'publisher' %></th>
+          <th><%= sortable 'copyright' %></th>
+          <th><%= sortable 'genre' %></th>
+          <th><%= sortable 'isbn' %></th>
+          
+        </tr>
+
+        <% book_detail.each do |book| %>
+
+        <tr>
+        	<td> <%= submit_tag "Add", class: "btn" %></td>
+        	<td><%= book.title %></td>
+        	<% if book.author_name? %>
+        		<td><%= book.author_name[0] %></td>
+        	<% else %>
+        		<td>NA</td>	
+        	<%end %>
+        	<% if book.publisher? %>
+        		<td><%= book.publisher[0] %></td>
+        	<% else %>
+        		<td>NA</td>	
+        	<%end %>	
+        	<% if book.publish_year? %>
+        		<td><%= book.publish_year[0] %></td>
+        	<% else %>
+        		<td>NA</td>	
+        	<%end %>	
+        	<% if book.subject? %>	
+        		<td><%= book.subject[0] %></td>
+        	<% else %>
+        		<td>NA</td>	
+        	<%end %>	
+        	<% if book.isbn? %>	
+        		<td><%= book.isbn[0] %></td>
+        	<% else %>
+        		<td>NA</td>	
+        	<%end %>	
+        		
+
+
+        </tr>
+        <% end %>
+	</table>
+
+	
