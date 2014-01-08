@@ -8,7 +8,7 @@
       <%= render 'shared/search' %>
   <% end %>
   <h3>Library (<%= @feed_items.count %>)</h3>
-    <table class="table library">
+    <table class="table table-bordered table-hover library">
       <tr>
         <%= render 'shared/table_head' %>
 
@@ -16,16 +16,22 @@
 
         <% @feed_items.each do |book| %>
           <tr>
+
+            <td><%= image_tag("http://covers.openlibrary.org/b/isbn/"+book.isbn+"-S.jpg") %></td>
   			    <td><%= book.title %></td>
             <td><%= book.author %></td>
             <td><%= book.publisher %></td>
             <td><%= book.copyright %></td>
             <td><%= book.genre %></td>
             <td><%= book.isbn %></td>
-            <td><%= link_to "Delete", book, method: :delete, data: { confirm: "Are you sure?" }, title: book.title %></td>
+            <td><%= link_to "Delete", book, method: :delete, data: { confirm: "Are you sure?" }, title: book.title %>/<%= link_to "Edit" %></td>
           </tr>
         <% end %>
   	 </table>
       
   		<%= will_paginate @feed_items %>
 <% end %>
+
+
+
+

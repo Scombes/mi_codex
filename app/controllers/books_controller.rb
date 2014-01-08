@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
    helper_method :sort_column, :sort_direction, :book_detail
-  before_action :signed_in_user, only: [:create, :destroy]
+  before_action :signed_in_user, only: [:create, :update, :destroy]
   before_action :correct_user,   only: :destroy
 
   def create
@@ -14,11 +14,17 @@ class BooksController < ApplicationController
   	end
   end
 
-  def destroy
+  def destroy 
   	@book.destroy
     redirect_to root_url
   end
 
+  def edit
+
+  end
+
+  def update
+  end
 
 
   private

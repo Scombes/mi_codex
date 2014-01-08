@@ -7068,3 +7068,16 @@ input {
   background-position: right center;
 }
 
+/* Tables */
+table{
+    table-layout: fixed;
+
+      }
+
+th, td {
+      width: 100%;
+      word-wrap:break-word;
+      overflow: hidden;
+      font-size: 11px;
+      }
+

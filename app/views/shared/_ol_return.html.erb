@@ -2,45 +2,62 @@
 	
 	<table class="table library">
 		<tr>
-			<th></th>
+            <% if book_detail.empty? %>
+            <h4>No Results found<h4>
+        <% else %>
+			
           	<%= render 'shared/table_head' %>
           
         </tr>
-
+        
         <% book_detail.each do |book| %>
+            <%= form_for(@book) do |f| %>
 
         <tr>
-        	<td> <%= submit_tag "Add", class: "btn" %></td>
+            <% if book.isbn? %>
+               <td><%= image_tag("http://covers.openlibrary.org/b/isbn/"+book.isbn[0]+"-S.jpg") %></td>
+            <% else %>
+                <td></td>
+            <% end %>
+            <%= f.hidden_field :title, :value => book.title %>
         	<td><%= book.title %></td>
         	<% if book.author_name? %>
+                <%= f.hidden_field :author, :value => book.author_name[0] %>
         		<td><%= book.author_name[0] %></td>
         	<% else %>
         		<td>NA</td>	
         	<%end %>
         	<% if book.publisher? %>
+                <%= f.hidden_field :publisher, :value => book.publisher[0] %>
         		<td><%= book.publisher[0] %></td>
         	<% else %>
         		<td>NA</td>	
         	<%end %>	
         	<% if book.publish_year? %>
+                <%= f.hidden_field :copyright, :value => book.publish_year[0] %>
         		<td><%= book.publish_year[0] %></td>
         	<% else %>
         		<td>NA</td>	
         	<%end %>	
         	<% if book.subject? %>	
+                <%= f.hidden_field :genre, :value => book.subject[0] %>
         		<td><%= book.subject[0] %></td>
         	<% else %>
         		<td>NA</td>	
         	<%end %>	
         	<% if book.isbn? %>	
+                <%= f.hidden_field :isbn, :value => book.isbn[0] %>
         		<td><%= book.isbn[0] %></td>
         	<% else %>
         		<td>NA</td>	
+                
         	<%end %>	
-        		
+        		<td> <%= f.submit "Add", class: "btn" %></td>
 
 
         </tr>
+        <% end %>
+        <% end %>
         <% end %>
 	</table>
 
