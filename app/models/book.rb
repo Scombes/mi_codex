@@ -1,4 +1,3 @@
-
 class Book < ActiveRecord::Base
 	searchkick
 	belongs_to :user

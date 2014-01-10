@@ -1,6 +1,5 @@
-require 'openlibrary'
-
 class StaticPagesController < ApplicationController
+        require 'openlibrary'
         helper_method :sort_column, :sort_direction, :book_detail
         
 
@@ -12,7 +11,7 @@ class StaticPagesController < ApplicationController
     @info= params[:info]
     @selected_data = params[:data]
     if params[:query].present?
-      @search = Book.search(params[:query], page: params[:page])
+      @search = Book.search(params[:query], where: {user_id: current_user.id }, page: params[:page])
     else
       @search = Book.all.page params[:page]
     end
