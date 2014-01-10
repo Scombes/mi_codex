@@ -232,6 +232,7 @@ body {
   line-height: 20px;
   color: #2c3e50;
   background-color: #ffffff;
+  overflow-x: hidden;
 }
 
 a {
@@ -6879,6 +6880,7 @@ html	{
 
 body {
   	padding-top: 60px;
+    overflow-x: hidden;
 	}
 
 section {
@@ -6931,7 +6933,36 @@ p {
           color: white;
           }
         }
+.gray_box {background-color: $grayMediumLight;
+          p {
+            margin: 10px;
+            }}
+.extendfull, .extendleft
+{
+  padding-left: 3000px;
+  margin-left: -3000px;
+}
 
+.extendfull, .extendright
+{
+  padding-right: 3000px;
+  margin-right: -3000px;
+}
+
+.quote  {
+        background-image: image-url("background_quote.jpg");
+        margin-top: 25px;
+        p{
+          font-size: 28px;
+          color: white;
+          margin-top: 15px;
+        }
+        }
+
+.about  img{
+            vertical-align: bottom;
+            display: table-cell;
+          }
 /* header */
 
 #logo {
