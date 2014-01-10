@@ -1,7 +1,7 @@
 MiCodex::Application.routes.draw do
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
-  resources :books, only: [:create, :destroy]
+  resources :books, only: [:create, :edit, :update, :destroy]
   root  'static_pages#home'
   match '/add', to: 'static_pages#home', via: 'post'
   match '/add', to: 'static_pages#home', via: 'get'
@@ -11,6 +11,7 @@ MiCodex::Application.routes.draw do
   match '/signup', to: 'users#new',  via: 'get'
   match '/help',  to: 'static_pages#help',  via: 'get'
   match '/contact', to: 'static_pages#contact',  via: 'get'
+
   
   
    

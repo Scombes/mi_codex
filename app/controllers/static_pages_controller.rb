@@ -26,7 +26,7 @@ class StaticPagesController < ApplicationController
 
   def add
   end
-
+ 
 
 
 private

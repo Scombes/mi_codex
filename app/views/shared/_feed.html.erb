@@ -24,7 +24,7 @@
             <td><%= book.copyright %></td>
             <td><%= book.genre %></td>
             <td><%= book.isbn %></td>
-            <td><%= link_to "Delete", book, method: :delete, data: { confirm: "Are you sure?" }, title: book.title %>/<%= link_to "Edit" %></td>
+            <td><%= link_to "Delete", book, method: :delete, data: { confirm: "Are you sure?" }, title: book.title %>/<%= link_to "Edit", edit_book_path(book.id) %></td>
           </tr>
         <% end %>
   	 </table>

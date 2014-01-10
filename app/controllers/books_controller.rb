@@ -1,7 +1,7 @@
 class BooksController < ApplicationController
    helper_method :sort_column, :sort_direction, :book_detail
-  before_action :signed_in_user, only: [:create, :update, :destroy]
-  before_action :correct_user,   only: :destroy
+  before_action :signed_in_user, only: [:create, :edit,  :update, :destroy]
+  before_action :correct_user,   only: [:destroy, :edit, :update]
 
   def create
   	@book = current_user.books.build(book_params)
@@ -20,10 +20,16 @@ class BooksController < ApplicationController
   end
 
   def edit
-
+    
   end
 
   def update
+    if @book.update_attributes(book_params)
+      flash[:success] = "Book Updated"
+      redirect_to root_url
+    else
+      render 'edit'
+    end
   end
 
 
