@@ -19,21 +19,5 @@ namespace :db do
     end
 
 
-      users = User.all(limit: 6)
-    50.times do |n|
-      title = Faker::Name.name
-      author = Faker::Name.name
-      publisher= "Penguin"
-      copyright= "2012"
-      genre = "Test"
-      isbn =  "123456789bnfg"
-      users.each { |user| user.books.create!(title: title,
-                                             author: author,
-                                             publisher: publisher,
-                                             copyright: copyright,
-                                             genre: genre,
-                                             isbn: isbn ) }
-
-    end
-  end
+      
 end
