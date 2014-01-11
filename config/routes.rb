@@ -1,7 +1,9 @@
 MiCodex::Application.routes.draw do
+  
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   resources :books, only: [:create, :edit, :update, :destroy]
+  
   root  'static_pages#home'
   match '/add', to: 'static_pages#home', via: 'post'
   match '/add', to: 'static_pages#home', via: 'get'
