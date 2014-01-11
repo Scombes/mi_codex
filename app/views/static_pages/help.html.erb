@@ -1,5 +1,32 @@
 <% provide(:title, 'Help') %>
+<div class="row">
+	<div class="span12">
+    	<h1>Mi Codex Help</h1>
+    	
+	</div>
+	
+</div>
+<div class="row">
+	
+	<div class="span8">
+		<p class="lead">This page will provide helpful advice on using Mi Codex:</p>
+		<ul>
+			<li>Mi Codex is prounced like My Code-Ex.</li>
+			<li>The quick search feature utilizes the Open Library API:
+				<ul>
+					<li>You can search using ISBN, author, or title.</li>
+					<li>If the results are not what you wanted try combining the search using Title and Author. </li>
+					<li>If using the ISBN number it can be 10 or 13 numbers long.  You will get better results if you do not use the e-book ISBN number.</li>
+					<li>You can also use the Open Library call number if you are familiar with it.</li>
+				</ul>		
+			</li>
+			<li>Covers are provided by Open Library.  They are found using the ISBN number.  If the cover does not come up then Open Library does not have it.   If you want to add the cover you can do so at <a href="https://openlibrary.org/">Open Library</a>.</li>
+		</ul>
+	</div>
 
-    <h1>Mi Codex Help</h1>
-	<p>This page will provide helpful advice on using Mi Codex</p>
- 
+	<div class="span4">
+		<p class="text-center"><%= image_tag('book_stack.png', :size => "125x125", :alt => "Stack of Books") %></p>
+		<p class="text-center"><%= image_tag('book_stack.png', :size => "125x125", :alt => "Stack of Books") %></p>
+	</div>
+
+</div>
